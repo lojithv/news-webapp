@@ -68,3 +68,28 @@ export async function addNewsRequest(data) {
     console.error(error);
   }
 }
+
+export async function updateHeadline(data) {
+  console.log(data)
+  console.log("test edit headline request");
+  try {
+    const response = await API.post("/editors/editHeadline", data);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateDescription(data) {
+  console.log(data)
+  console.log("test edit headline request");
+  try {
+    const response = await API.post("/editors/editNews", data);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+}
+

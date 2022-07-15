@@ -10,3 +10,14 @@ export async function getAllCategories() {
     return error;
   }
 }
+
+export async function addCategory(data) {
+  console.log(data)
+  console.log("test add category request");
+  try {
+    const response = await API.get(`/admin/addCategory?category=${data}`);
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
