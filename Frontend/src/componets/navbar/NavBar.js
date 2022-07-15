@@ -55,7 +55,7 @@ const ResponsiveAppBar = (props) => {
     navigate("/categories");
   }
   const handleAdmin = ( ) =>{
-    navigate("/Admin");
+    navigate("/admin");
   }
 
   const handleAddNews = ( ) =>{
@@ -167,7 +167,7 @@ const ResponsiveAppBar = (props) => {
             ))} */}
             <Button onClick={handleHome} style={{ color:'white'}}>Home</Button>
             <Button onClick={handleCategories} style={{ color:'white'}}>Categories</Button>
-            {(userRole === "admin")?       <Button onClick={handleAdmin} style={{ color:'white'}}>Admin</Button>: null}
+            {(userRole === "admin")? <Button onClick={handleAdmin} style={{ color:'white'}}>Admin</Button>: null}
             {(userRole === "admin" ||  userRole === "editor")? <Button onClick={handleAddNews} style={{ color:'white'}}>Add News</Button> : null }
       
           </Box>

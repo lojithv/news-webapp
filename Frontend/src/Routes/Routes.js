@@ -10,6 +10,9 @@ import SingleNews from "../pages/SingleNews";
 import Categories from "../pages/Categories";
 import CategoryNews from "../pages/CategoryNews"
 import AddNews from "../pages/AddNews";
+import AddCategories from "../pages/AddCategories";
+import AdminDashborad from "../pages/AdminDashborad";
+import ChangeUserRole from "../pages/ChangeUserRole";
 
 const PageRoutes = () => (
   <Router>
@@ -22,6 +25,9 @@ const PageRoutes = () => (
       <Route path="/categories" exact element={<Categories/>} />
       <Route path="/categories/:id" element={<CategoryNews/>} />
       <Route path="/addnews" element={<AddNews/>} />
+      <Route path="/addcategories" element={<AddCategories/>} />
+      <Route path="/changeuserrole" element={<ChangeUserRole/>} />
+      <Route path="/admin" element={<AdminDashborad/>} />
     </Routes>
   </Router>
 );
