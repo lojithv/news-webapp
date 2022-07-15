@@ -13,6 +13,7 @@ export default function SingleNews() {
     const newsid = splitedUrl[splitedUrl.length - 1];
     //   console.log(url);
     //   console.log(splitedUrl[splitedUrl.length-1]);
+    localStorage.setItem('newsId',newsid);
     getNewsDetails(newsid);
   }, []);
 

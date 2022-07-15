@@ -9,6 +9,7 @@ import Profile from "../pages/Profile";
 import SingleNews from "../pages/SingleNews";
 import Categories from "../pages/Categories";
 import CategoryNews from "../pages/CategoryNews"
+import AddNews from "../pages/AddNews";
 
 const PageRoutes = () => (
   <Router>
@@ -20,6 +21,7 @@ const PageRoutes = () => (
       <Route path="/singleNews/:id" element={<SingleNews/>} />
       <Route path="/categories" exact element={<Categories/>} />
       <Route path="/categories/:id" element={<CategoryNews/>} />
+      <Route path="/addnews" element={<AddNews/>} />
     </Routes>
   </Router>
 );

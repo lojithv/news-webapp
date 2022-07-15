@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -24,6 +25,7 @@ const ResponsiveAppBar = (props) => {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [userRole, setUserRole] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -56,6 +58,18 @@ const ResponsiveAppBar = (props) => {
     navigate("/Admin");
   }
 
+  const handleAddNews = ( ) =>{
+    navigate("/addnews");
+  }
+
+  useEffect(() => {
+  
+    return () => {
+      const role = localStorage.getItem("role");
+      setUserRole(role);
+    }
+  }, [])
+  
 
   return (
     <AppBar position="static">
@@ -153,7 +167,9 @@ const ResponsiveAppBar = (props) => {
             ))} */}
             <Button onClick={handleHome} style={{ color:'white'}}>Home</Button>
             <Button onClick={handleCategories} style={{ color:'white'}}>Categories</Button>
-            <Button onClick={handleAdmin} style={{ color:'white'}}>Admin</Button>
+            {(userRole === "admin")?       <Button onClick={handleAdmin} style={{ color:'white'}}>Admin</Button>: null}
+            {(userRole === "admin" ||  userRole === "editor")? <Button onClick={handleAddNews} style={{ color:'white'}}>Add News</Button> : null }
+      
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
