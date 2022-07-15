@@ -308,7 +308,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\":\"ac258b45-46c7-4200-9535-c8b93ded0647\",\r\n    \"newsId\":\"f271f136-7455-4671-babc-be2d961e9bb9\",\r\n    \"news\":\"nadeesha@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"newsId\":\"f271f136-7455-4671-babc-be2d961e9bb9\",\r\n    \"news\":\"nadeesha@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -337,7 +337,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\":\"ac258b45-46c7-4200-9535-c8b93ded0647\",\r\n    \"newsId\":\"f271f136-7455-4671-babc-be2d961e9bb9\",\r\n    \"headLine\":\"new headline\"\r\n}",
+							"raw": "{\r\n    \"newsId\":\"f271f136-7455-4671-babc-be2d961e9bb9\",\r\n    \"headLine\":\"new headline\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

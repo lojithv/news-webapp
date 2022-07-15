@@ -12,42 +12,22 @@ const addUserModel = modelAddUser;
 const addNewsModel = modelAddNews;
 
 router.post("/editNews", (req, res) => {
-  const bodyData = req.body
-  const userId = bodyData["userId"]
-  const newsId = bodyData["newsId"]
-  const newNews = bodyData["news"]
+  const bodyData = req.body;
+  const newsId = bodyData["newsId"];
+  const newNews = bodyData["news"];
 
-  let userDetails;
-
-  const userResponse = async () => {
+  const editNews = async () => {
     try {
-      userDetails = await addUserModel.find({
-        userId: userId,
-      });
+      const newsResp = await addNewsModel.findOneAndUpdate(
+        { newsId: newsId },
+        { news: newNews }
+      );
     } catch (err) {
       console.log(err);
     }
-  };
-  const editNews = async () => {
-    await userResponse();
-    const userRole = userDetails[0]["userRole"];
 
-    if (userRole == "editor") {
-      try {
-        const newsResp = await addNewsModel.findOneAndUpdate(
-          { newsId: newsId },
-          { news: newNews },
-        );
-      } catch (err) {
-        console.log(err);
-      }
-  
-      res.send(`news ${newsId} is changed`);
-    } else {
-      res.send(`user ${userDetails[0]["name"]} is not an editor`);
-    }
+    res.send(`news ${newsId} is changed`);
   };
   editNews();
-
 });
 export default router;
