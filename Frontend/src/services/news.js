@@ -42,6 +42,7 @@ export async function getSingleNews(id) {
 }
 
 export async function getNewsCat(category) {
+  console.log(category)
   try {
     const response = await API.get(`/news/getNewsByCategory?category=${category}`);
     return response;

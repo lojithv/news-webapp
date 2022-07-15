@@ -12,6 +12,8 @@ export default function SingleNews() {
   const [headline, setHeadline] = React.useState('');
   const [description, setDescription] = React.useState('');
 
+  const [userRole, setUserRole] = React.useState(null);
+
   useEffect(() => {
     const url = window.location.href;
     const splitedUrl = url.split("/");
@@ -20,6 +22,11 @@ export default function SingleNews() {
     //   console.log(splitedUrl[splitedUrl.length-1]);
     localStorage.setItem('newsId', newsid);
     getNewsDetails(newsid);
+
+    return () => {
+      const role = localStorage.getItem("role");
+      setUserRole(role);
+    }
   }, []);
 
   const getNewsDetails = async (newsId) => {
@@ -102,9 +109,10 @@ export default function SingleNews() {
           <div style={{ fontSize: "30px", fontWeight: "bold" }}>
             {newsDetails.headline}
           </div>
+          {userRole === "editor" || userRole === "admin" ? 
           <IconButton onClick={handelHedline}>
             <EditIcon fontSize={"small"} style={{ color: "lightblue" }} />
-          </IconButton>
+          </IconButton>:null}
         </Toolbar>
       }
 
@@ -137,12 +145,14 @@ export default function SingleNews() {
           <div style={{ fontSize: "18px", marginTop: "10px" }}>
             {newsDetails.news}
           </div>
-          <Toolbar>
-            <Typography style={{ color: "lightblue" }}>Edit News</Typography>{" "}
-            <IconButton onClick={handelNews}>
-              <EditIcon fontSize={"small"} style={{ color: "lightblue" }} />
-            </IconButton>
-          </Toolbar>
+          {userRole === "editor" || userRole === "admin" ? 
+                    <Toolbar>
+                    <Typography style={{ color: "lightblue" }}>Edit News</Typography>{" "}
+                    <IconButton onClick={handelNews}>
+                      <EditIcon fontSize={"small"} style={{ color: "lightblue" }} />
+                    </IconButton>
+                  </Toolbar>:null
+        }
         </>
 
       }

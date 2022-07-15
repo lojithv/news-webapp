@@ -37,7 +37,7 @@ function NewsCard(props) {
           <div style={{ hiegth: "900px" }}>
 
             <Typography variant={"p"} style={{ margin: "0 0 20px 0", wordWrap:"break-word" }}>
-            {props.news.news.slice(0,15) + "..."} 
+            {props.news.news.slice(0,300) + "..."} 
             </Typography>
           </div>
         </Container>

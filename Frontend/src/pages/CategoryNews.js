@@ -33,7 +33,7 @@ export default function CategoryNews() {
   const getCategoryNews = async (category) => {
     const response = await getNewsCat(category);
     setCategoryNewses(response.data);
-    console.log(response.data, "res.data");
+    console.log(response, "res.data");
   };
 
   return (

@@ -1,7 +1,7 @@
 .gridContainer {
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: rgb(156, 59, 87);
+    background-color: rgb(172, 21, 64);
   }
   
   .gridItem {

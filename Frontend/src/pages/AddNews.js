@@ -79,9 +79,9 @@ export default function AddNews() {
           className="register__textBox"
           onChange={handleSelectCategory}
         >
-          <MenuItem value={'Sport'}>Sport</MenuItem>
-          <MenuItem value={'Political'}>Political</MenuItem>
-          <MenuItem value={'Tech'}>Tech</MenuItem>
+          <MenuItem value={'sports'}>Sports</MenuItem>
+          <MenuItem value={'political'}>Political</MenuItem>
+          <MenuItem value={'tech'}>Tech</MenuItem>
         </Select>
                     <TextField
               id="outlined-basic"
