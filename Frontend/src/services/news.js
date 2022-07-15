@@ -50,3 +50,21 @@ export async function getNewsCat(category) {
     return error;
   }
 }
+
+export async function addNewsRequest(data) {
+  // {
+  //     "headline":"ppppppp",
+  //     "news":"news news news",
+  //     "category":"sports",
+  //     "topStories":"false",
+  //     "userId":"ea8b0041-485e-48a6-afbf-caf802d01c37"
+  // }
+  console.log(data)
+  console.log("test add news request");
+  try {
+    const response = await API.post("/editors/addNews", data);
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}

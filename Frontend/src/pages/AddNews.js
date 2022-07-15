@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { TextField, Button } from "@mui/material";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import { addNewsRequest } from '../services/news';
+import { useNavigate } from "react-router-dom";
 
 export default function AddNews() {
             //add headline
@@ -11,14 +13,36 @@ export default function AddNews() {
             const [headline, setHeadline] = React.useState('');
             const [category, setCategory] = React.useState('');
             const [description, setDescription] = React.useState('');
+            const [userid, setUserId] = React.useState('');
 
+            const navigate = useNavigate();
 
             const handleSelectCategory = (event) => {
               setCategory(event.target.value);
             };
 
+            useEffect(() => {
+              return () => {
+                const userId = localStorage.getItem('userId');
+                setUserId(userId);
+              }
+            }, [])
+            
+
             const addNews = () =>{
-                console.log(headline, category, description)
+              const news =   {
+                    headline:headline,
+                    news:description,
+                    category:category,
+                    topStories:"false",
+                    userId:userid
+                }
+                console.log(userid)
+                console.log(headline, category, description);
+
+                addNewsRequest(news);
+
+                navigate("/home");
             }
 
   return (
@@ -52,6 +76,7 @@ export default function AddNews() {
           value={category}
           style={{marginTop:'20px', width:'20%', marginLeft:'20px'}}
           label="Category"
+          className="register__textBox"
           onChange={handleSelectCategory}
         >
           <MenuItem value={'Sport'}>Sport</MenuItem>

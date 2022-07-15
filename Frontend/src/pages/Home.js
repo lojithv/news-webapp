@@ -27,6 +27,7 @@ function Home() {
       // }
       navigate("/home");
       localStorage.setItem("role", data.role);
+      localStorage.setItem("userId", data.uid);
       setName(data.name);
     } catch (err) {
       console.error(err);

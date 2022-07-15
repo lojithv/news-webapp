@@ -26,25 +26,25 @@ router.post("/addNews", (req, res) => {
 
   const userId = bodyData["userId"];
   let userDetails;
-  const userResponse = async () => {
-    try {
-      userDetails = await addUserModel.find({
-        userId: userId,
-      });
-      console.log(userDetails);
-    } catch (err) {
-      res.send(false);
-    }
-  };
+  // const userResponse = async () => {
+  //   try {
+  //     userDetails = await addUserModel.find({
+  //       userId: userId,
+  //     });
+  //     console.log(userDetails);
+  //   } catch (err) {
+  //     res.send(false);
+  //   }
+  // };
 
   const addThisNews = async () => {
-    await userResponse();
+    // await userResponse();
 
     try {
-      if(userDetails[0]==undefined){
-        res.send(`user undefined`)
-      }
-      if (userDetails[0]["userRole"] == "editor") {
+      // if(userDetails[0]==undefined){
+      //   res.send(`user undefined`)
+      // }
+      // if (userDetails[0]["userRole"] == "editor") {
         const newsData = new addNewsModel({
           newsId: newsId,
           date: dateTime,
@@ -63,9 +63,9 @@ router.post("/addNews", (req, res) => {
         headlinedata.save();
 
         res.send(`Headline ${newsId} added`);
-      } else {
-        res.send(`unathorized user`);
-      }
+      // } else {
+      //   res.send(`unathorized user`);
+      // }
     } catch (err) {
       res.send(err);
     }
